@@ -3,9 +3,7 @@ import Form from "./components/forms/Form";
 import Layout from "./hoc/Layout";
 
 function App() {
-   return <div><Layout>
-      <Form/>
-      </Layout></div>;
+   return <div>HELLO</div>;
 }
 
 export default App;
