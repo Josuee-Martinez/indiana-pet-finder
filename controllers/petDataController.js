@@ -16,6 +16,8 @@ router.get("/", async (req, res) => {
          `https://api.petfinder.com/v2/animals?type=${req.body.type}&location=${req.body.location}`,
          config
       );
+
+      res.json(response.data);
    } catch (error) {
       res.json(error);
       console.log(error);
