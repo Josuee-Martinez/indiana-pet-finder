@@ -1,9 +1,25 @@
 const { Router } = require("express");
-
 const router = Router();
 
-router.get("/", (req, res) => {
-   res.json({ data: "this is the data for now" });
+const axios = require("axios");
+
+router.get("/", async (req, res) => {
+   const token = req.headers.authorization;
+   try {
+      const config = {
+         headers: {
+            Authorization: token,
+         },
+      };
+
+      const response = await axios.get(
+         `https://api.petfinder.com/v2/animals?type=${req.body.type}&location=${req.body.location}`,
+         config
+      );
+   } catch (error) {
+      res.json(error);
+      console.log(error);
+   }
 });
 
 module.exports = router;
