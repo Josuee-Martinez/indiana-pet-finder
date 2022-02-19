@@ -3,14 +3,27 @@ import useFetch from 'react-fetch-hook';
 import axios from 'axios'
 
 function Layout({children}) {
-const headers=  {
-      'Access-Control-Allow-Origin': '*',
-    }
-useEffect(()=>{
-    axios.get("http://localhost:5000/api/petdata", headers).then(res =>{
-        console.log(res)
-    })
-})
+//  const config = {
+//    headers: {
+//      Accept: "application/json",
+//      "Content-Type": "application/json",
+//    },
+//  };
+
+//  const checkAuthenticated = async () =>{
+//      console.log('checking auth')
+//     const res = await axios.get("http://localhost:5000/api/authtoken", config)
+
+//     if(res){
+//         console.log(res)
+//     }else{
+//         console.log("it don't work")
+//     }
+//  }
+// useEffect(()=>{
+//     (async ()=>{ return await checkAuthenticated()})()
+   
+// })
     
 
   return (

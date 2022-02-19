@@ -1,9 +1,12 @@
 import "./App.css";
-import Form from "./components/forms/Form";
+import FormSearch from "./components/forms/Form";
 import Layout from "./hoc/Layout";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-   return <div>HELLO</div>;
+   return <Layout>
+      <FormSearch />
+   </Layout>;
 }
 
 export default App;
