@@ -12,13 +12,13 @@ router.get("/", async (req, res) => {
          },
       };
 
+     
       const response = await axios.get(
          `https://api.petfinder.com/v2/animals?type=${req.body.type}&location=${req.body.location}`,
          config
       );
 
-      res.json(response.data);
-      console.log(req.body);
+     
    } catch (error) {
       res.json(error);
       console.log(error);
