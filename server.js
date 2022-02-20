@@ -5,6 +5,8 @@ const app = express();
 const authTokenController = require("./controllers/authTokenController");
 const petDataController = require("./controllers/petDataController");
 
+app.use(express.json({ extended: false }));
+
 app.use(require("./middleware/headers"));
 
 app.use("/api/authtoken", authTokenController);
