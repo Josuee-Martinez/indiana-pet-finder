@@ -18,11 +18,11 @@ router.get("/", async (req, res) => {
       );
 
       res.json(response.data);
+      console.log(req.body);
    } catch (error) {
       res.json(error);
       console.log(error);
    }
 });
-
 
 module.exports = router;
