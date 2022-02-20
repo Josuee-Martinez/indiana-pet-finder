@@ -1,18 +1,45 @@
 import React, {useState} from 'react'
 import Form from "react-bootstrap/Form";
-
-
+import { useAuthStore } from '../../utility/GlobalState';
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
 const FormSearch = (e) =>{
+  const [authState, setAutState] = useAuthStore()
   const [formValue, setFormValue] = useState({
     type:'',
-    zipcode:''
+    location:''
   })
 
 
+
+  
+
   const handleSubmit = (e,data) =>{
+    const token = localStorage.getItem("token");
+  
+    const config = {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+        
+      },
+      body:JSON.stringify(data)
+      
+    };
     e.preventDefault();
-    console.log(data)
+    
+    const testData = {
+      type:data?.type,
+      location:data?.location
+    }
+
+   
+   const res =  axios("http://localhost:5000/api/petdata",config ).then(res =>{
+     console.log(res)
+   });
 
   }
 
@@ -42,8 +69,8 @@ const FormSearch = (e) =>{
             onChange={handleChange}
             type="number"
             placeholder="Enter Zipcode"
-            value={formValue.zipcode}
-            name="zipcode"
+            value={formValue.location}
+            name="location"
             required
           />
         </Form.Group>

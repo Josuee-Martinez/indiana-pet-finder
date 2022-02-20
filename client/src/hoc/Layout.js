@@ -5,7 +5,7 @@ import {useAuthStore} from '../utility/GlobalState'
 
 function Layout({children}) {
     const [ authState, setAuthState] = useAuthStore()
-
+    const [isLoading, setIsLoading] = useState(true)
  const config = {
    headers: {
      Accept: "application/json",
@@ -23,20 +23,27 @@ function Layout({children}) {
             token:res.data.access_token,
             isAuthenticated:true
         })
-    
+
+        localStorage.setItem('token', res?.data?.access_token)
+        setIsLoading(false)
     }else{
         console.log(res.status)
     }  
    }catch(error){
        console.log(error)
    }
- }
+ } 
+ 
+ 
+
 useEffect(()=>{
     (async ()=>{ return await checkAuthenticated()})()
    
-    console.log(authState)
 }, [])
     
+   if (isLoading){
+        return <h1>Loading...</h1>
+    }
 
   return (<div>{children}</div>) 
     
