@@ -4,7 +4,6 @@ import React, {useState,useContext, createContext} from 'react';
 
     export const AuthProvider = props =>{
         const [authState, setAuthState] = useState({
-            token:'',
             isAuthenticated:false
         })
 
