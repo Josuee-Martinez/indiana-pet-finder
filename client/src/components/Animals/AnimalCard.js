@@ -1,20 +1,19 @@
-import React from 'react'
-import './animals.css'
+import React from "react";
+import "./animals.css";
 
-function AnimalCard({animal}) {
-    console.log(animal)
+function AnimalCard({ animal }) {
+
   return (
-    <div className="animal-wrapper">
-      <img src={animal?.primary_photo_cropped?.medium} alt="pet" />
+    < >
+      <img className="pet-img" src={animal?.primary_photo_cropped?.medium} alt="pet" />
       <h2>{animal?.name}</h2>
       <ul>
-
-            <li>status: {animal?.status}</li>
-          <li>Age: {animal?.age}</li>
-          <li>size: {animal?.size} </li>
+        <li><strong>status: </strong>{animal?.status}</li>
+        <li><strong>Age:</strong> {animal?.age}</li>
+        <li><strong>size:</strong> {animal?.size} </li>
       </ul>
-    </div>
+    </>
   );
 }
 
-export default AnimalCard
+export default AnimalCard;

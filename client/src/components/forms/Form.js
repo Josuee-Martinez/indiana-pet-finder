@@ -49,10 +49,9 @@ const FormSearch = (e) => {
   return (
     <Form
       onSubmit={(e) => handleSubmit(e, formValue)}
-      className=" mx-auto my-5 mb-3"
-      style={{ width: "35%" }}
+      className=" mx-auto my-5 mb-3 col-25"
     >
-      <Form.Group className="mb-2 p-4">
+      <Form.Group className=" mb-2 p-4">
         <Form.Label>Cat or Dog</Form.Label>
         <Form.Control
           onChange={handleChange}
@@ -73,8 +72,9 @@ const FormSearch = (e) => {
           name="location"
           required
         />
+        <button className="m-5" onSubmit={(e) => handleSubmit(e, formValue)}>submit</button>
       </Form.Group>
-      <button onSubmit={(e) => handleSubmit(e, formValue)}>submit</button>
+      
     </Form>
   );
 };
