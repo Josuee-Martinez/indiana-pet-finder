@@ -6,6 +6,10 @@
    margin: 0 auto;
 }
 
+.card-container:hover{
+   cursor: pointer;
+}
+
 .card-container h2 {
    font-size: 1em;
    text-align: center;
@@ -21,6 +25,17 @@ ul {
    object-fit: cover;
    object-position: 1% 10%;
 }
+
+
+
+.details-column{
+   flex:0 0 40%;
+}
+
+.details-img{
+   max-width:100%;
+}
+
 
 @media screen and (min-width: 576px) {
    .pet-img {
